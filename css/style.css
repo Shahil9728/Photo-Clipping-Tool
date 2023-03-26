@@ -1,0 +1,232 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+#container {
+    height: 100vh;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+#navbar {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 43%, rgba(0, 212, 255, 1) 100%);
+    box-shadow: 0px 3px 25px black;
+    color: rgb(0.010018803179264069, 0.010018803179264069, 0.010018803179264069)
+}
+
+#navbar #logo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+    margin-left: 2rem;
+}
+
+#navbar #logo img {
+    height: 40px;
+    width: 40px;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar ul li {
+    width: 80px;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    place-items: center;
+    font-weight: 600;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#navbar ul:hover .active {
+    background: none;
+    border: none;
+}
+
+#navbar ul li a:hover {
+    color: gray;
+}
+
+#content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: calc(50% - 250px);
+}
+
+.main {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 80%;
+}
+
+#content h2 {
+    font-size: 5rem;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 43%, rgba(0, 212, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#content p {
+    font-size: 20px;
+    margin-top: 1rem;
+    color: black
+}
+
+button {
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5vh;
+    margin-left: center;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background: #090979;
+    color: white;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(44, 44, 203);
+}
+
+#icons {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 43%, rgba(0, 212, 255, 1) 100%);
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    top: calc(50% - 250px);
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(2px 2px 2px grey);
+}
+
+#icons #iconsLogo {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#icons #iconsLogo ion-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 30px;
+    margin: 10px;
+    color: white;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+#icons #iconsLogo ion-icon:hover {
+    color: gray;
+}
+
+#aSide {
+    top: calc(50% - 250px);
+    right: 7%;
+}
+
+
+.colorpicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.color {
+    height: 80px;
+    width: 80px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.img {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    margin: 0;
+    transition: 0.3s all ease;
+}
+
+.btn
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+@media (max-width:900px) {
+    .main {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #navbar #logo img {
+        height: 20px;
+        width: 20px;
+    }
+
+    #logo h1 {
+        font-size: 1.5rem;
+    }
+
+    #navbar ul li {
+        width: 70px;
+        margin: 0 3px;
+    }
+
+    #navbar ul li:nth-child(4),
+    #navbar ul li:nth-child(5) {
+        display: none;
+    }
+
+    #content h2 {
+        font-size: 3rem;
+    }
+
+    .color {
+        width: 50px;
+        height: 50px;
+    }
+}

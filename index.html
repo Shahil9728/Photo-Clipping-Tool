@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Modeling Website</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- For Icon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="navbar">
+            <div id="logo">
+                <img src="assets/logo.png" alt="logo">
+                <h1>Modelio</h1>
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li><a href="#">Tech</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div id="content">
+                <h2>Photo Clipping Tool</h2>
+                <p>Get creative with precision - clip your way to a perfect photo!</p>
+                <div class="btn">
+                    <input type="file" name="" id="file-input" onchange="displaySelectedImage(event)"
+                        style="display: none;">
+                    <button id="download-btn"> Downlaod</button>
+                    <button type="button" onclick="document.getElementById('file-input').click()">Upload</button>
+                </div>
+            </div>
+
+            <div id="aSide">
+                <div class="image">
+                    <img src="https://unsplash.it/250/250" alt="" class="img">
+                </div>
+                <div class="colorpicker">
+                    <img src="assets/img1.png" alt="" class="color" title="red">
+                    <img src="assets/img2.png" alt="" class="color" title="blue">
+                    <img src="assets/img3.png" alt="" class="color" title="green">
+                    <img src="assets/img4.png" alt="" class="color" title="black">
+                </div>
+            </div>
+
+
+        </div>
+        <div id="icons">
+            <div id="iconsLogo">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-youtube"></ion-icon>
+                <ion-icon name="logo-twitter"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const img = document.querySelector('.img');
+        var flag = true;
+        function displaySelectedImage(event) {
+            flag = false;
+            img.src = URL.createObjectURL(event.target.files[0]);
+        }
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const color = document.querySelector('.color');
+        const colorpicker = document.querySelector('.colorpicker');
+        colorpicker.addEventListener('click', (event) => {
+            if (event.target.classList.contains('color')) {
+                const color = event.target.getAttribute('title');
+                if (color == 'red') {
+                    img.style.clipPath = "path('M213.1,6.7c-32.4-14.4-73.7,0-88.1,30.6C110.6,4.9,67.5-9.5,36.9,6.7C2.8,22.9-13.4,62.4,13.5,110.9 C33.3,145.1,67.5,170.3,125,217c59.3-46.7,93.5-71.9,111.5-106.1C263.4,64.2,247.2,22.9,213.1,6.7z')";
+                }
+                else if (color == 'blue') {
+                    img.style.clipPath = "inset(5% 5% 5% 5% round 10%)";
+                }
+                else if (color == 'green') {
+                    img.style.clipPath = "circle(50% at 50% 50%)";
+                }
+                else if (color == 'black') {
+                    img.style.clipPath = "inset(10% 0% 10% 0% round 10%)";
+                }
+            }
+        });
+
+        const downloadBtn = document.getElementById('download-btn');
+        downloadBtn.addEventListener('click', () => {
+            if (flag == false) {
+                var link = document.createElement('a');
+                link.href = img.src;
+                link.download = 'image.jpg';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+            else
+            {
+                alert("Please Upload the image first")
+            }
+        });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
